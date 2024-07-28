@@ -73,13 +73,13 @@ class AuthorServiceTest extends TestCase
         $this->assertDatabaseHas('authors', $authorData);
     }
 
-    
+
     public function test_it_can_update_an_author()
     {
         //Arrange
         $author = Author::factory()->create();
         $id =  $author->id;
-        $name = $author->name;
+        $originalName = $author->name;
 
 
         $updatedAuthorData = [
@@ -97,7 +97,7 @@ class AuthorServiceTest extends TestCase
         $this->assertDatabaseHas('authors', $updatedAuthorData);
         $this->assertDatabaseMissing('authors', [
             'id' => $id,
-            'name' => $name,
+            'name' => $originalName,
         ]);
     }
 
