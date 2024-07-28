@@ -22,9 +22,9 @@ class AuthorAppService
         return AuthorResource::make(Author::findOrFail($id));
     }
 
-    public function save($request)
+    public function save($authorDto)
     {
-        $author = Author::create($request);
+        $author = Author::create($authorDto);
         return AuthorResource::make($author);
     }
 
