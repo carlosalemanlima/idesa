@@ -22,15 +22,15 @@ class AuthorAppService
         return AuthorResource::make(Author::findOrFail($id));
     }
 
-    public function save(StoreAuthorRequest $request)
+    public function save($request)
     {
-        $author = Author::create($request->validated());
+        $author = Author::create($request);
         return AuthorResource::make($author);
     }
 
-    public function update(UpdateAuthorRequest $request, Author $author)
+    public function update($request, Author $author)
     {
-        $author->update($request->validated());
+        $author->update($request);
         return AuthorResource::make($author);
     }
 

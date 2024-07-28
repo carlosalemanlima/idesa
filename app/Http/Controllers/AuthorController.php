@@ -31,12 +31,12 @@ class AuthorController extends Controller
 
     public function store(StoreAuthorRequest $request): JsonResponse
     {
-        return response()->json($this->authorsService->save($request), 201);
+        return response()->json($this->authorsService->save($request->validated()), 201);
     }
 
     public function update(UpdateAuthorRequest $request, Author $author)
     {
-        return $this->authorsService->update($request, $author);
+        return $this->authorsService->update($request->validated(), $author);
     }
 
     public function destroy(Author $author)
