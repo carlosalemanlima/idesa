@@ -4,7 +4,8 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StatusController;
-use App\Http\Controllers\AuthorsController;
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\BookController;
 
 
 
@@ -21,7 +22,8 @@ Route::prefix('v1')->group(function () {
     Route::post("/login", [AuthController::class, "login"]);
 
     Route::middleware("auth:sanctum")->group(function () {
-        Route::apiResource('/authors', AuthorsController::class);
+        Route::apiResource('/authors', AuthorController::class);
+        Route::apiResource('/books', BookController::class);
     });
 });
 

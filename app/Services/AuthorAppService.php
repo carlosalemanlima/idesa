@@ -7,7 +7,7 @@ use App\Http\Resources\AuthorResource;
 use App\Http\Requests\StoreAuthorRequest;
 use App\Http\Requests\UpdateAuthorRequest;
 
-class AuthorsAppService
+class AuthorAppService
 {
 
 

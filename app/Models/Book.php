@@ -9,10 +9,11 @@ class Book extends Model
 {
 
     use HasFactory;
-    
-    protected $table = 'books';
 
-    protected $fillable = ['title', 'isbn', 'publishedDate', 'author_id'];
+    protected $table = 'books';
+    public $timestamps = false;
+
+    protected $fillable = ['title', 'isbn', 'published_date', 'author_id'];
 
     protected $casts = [
         'published_date' => 'date',

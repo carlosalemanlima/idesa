@@ -5,16 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Author;
 
 use Illuminate\Http\JsonResponse;
-use App\Services\AuthorsAppService;
+use App\Services\AuthorAppService;
 use App\Http\Requests\StoreAuthorRequest;
 use App\Http\Requests\UpdateAuthorRequest;
 
-class AuthorsController extends Controller
+class AuthorController extends Controller
 {
 
     protected $authorsService;
 
-    public function __construct(AuthorsAppService $authorsService)
+    public function __construct(AuthorAppService $authorsService)
     {
         $this->authorsService = $authorsService;
     }
