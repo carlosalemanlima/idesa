@@ -1,0 +1,39 @@
+services:
+  laravel:
+    restart: unless-stopped
+    container_name: idesa-app
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    volumes:
+      - v-idesa-app:/var/www/html/storage/app
+    ports:
+      - "8080:80"
+    networks:
+      - idesa-network
+    depends_on:
+      - database
+
+  database:
+    container_name: idesa-db
+    restart: unless-stopped
+    image: mysql:8.0.27
+    volumes:
+      - v-database:/var/lib/mysql
+    ports:
+      - "3309:3306"
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    networks:
+      - idesa-network
+
+volumes:
+  v-database:
+  v-idesa-app:
+
+
+networks:
+  idesa-network:
+    driver: bridge
