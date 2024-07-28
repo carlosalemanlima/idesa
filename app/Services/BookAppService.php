@@ -13,7 +13,7 @@ class BookAppService
 
     public function getAll()
     {
-        return BookResource::collection(Book::paginate(10));
+        return BookResource::collection(Book::paginate(5));
     }
 
 

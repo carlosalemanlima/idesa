@@ -13,7 +13,7 @@ class AuthorAppService
 
     public function getAll()
     {
-        return AuthorResource::collection(Author::paginate(10));
+        return AuthorResource::collection(Author::paginate(5));
     }
 
 

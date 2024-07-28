@@ -36,11 +36,11 @@ class AuthorServiceTest extends TestCase
         $this->assertInstanceOf(\Illuminate\Http\Resources\Json\AnonymousResourceCollection::class, $result);
         $this->assertInstanceOf(\Illuminate\Http\Resources\Json\JsonResource::class, $result->collection->first());
 
-        $this->assertEquals(10, $result->resource->perPage());
+        $this->assertEquals(5, $result->resource->perPage());
         $this->assertEquals(25, $result->resource->total());
-        $this->assertEquals(3, $result->resource->lastPage());
+        $this->assertEquals(5, $result->resource->lastPage());
 
-        $this->assertCount(10, $result->resource->items());
+        $this->assertCount(5, $result->resource->items());
     }
 
 
