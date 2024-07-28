@@ -27,7 +27,11 @@ class BookController extends Controller
 
     public function store(StoreBookRequest $request)
     {
-        return response()->json($this->booksService->save($request), 201);
+        $validatedData = $request->validated();
+        $validatedData['author_id'] = $validatedData['author']['author_id'];
+        unset($validatedData['author']);
+
+        return response()->json($this->booksService->save($validatedData), 201);
     }
 
 
@@ -39,7 +43,14 @@ class BookController extends Controller
 
     public function update(UpdateBookRequest $request, Book $book)
     {
-        return $this->booksService->update($request, $book);
+        $validatedData = $request->validated();
+
+        if (isset($request['author'])) {
+            $validatedData['author_id'] = $validatedData['author']['author_id'];
+            unset($validatedData['author']);
+        }
+
+        return $this->booksService->update($validatedData, $book);
     }
 
     public function destroy(Book $book)

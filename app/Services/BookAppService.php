@@ -23,26 +23,15 @@ class BookAppService
     }
 
 
-    public function save(StoreBookRequest $request)
+    public function save($bookDto)
     {
-        $validatedData = $request->validated();
-        $validatedData['author_id'] = $validatedData['author']['author_id'];
-        unset($validatedData['author']);
-
-        $book = Book::create($validatedData);
+        $book = Book::create($bookDto);
         return BookResource::make($book);
     }
 
 
-    public function update(UpdateBookRequest $request, Book $book)
+    public function update($validatedData, Book $book)
     {
-        $validatedData = $request->validated();
-
-        if (isset($request['author'])) {
-            $validatedData['author_id'] = $validatedData['author']['author_id'];
-            unset($validatedData['author']);
-        }
-
         $book->update($validatedData);
         return BookResource::make($book);
     }
