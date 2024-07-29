@@ -83,3 +83,5 @@ Para usarlo desde Postman podemos configurar el Token a usar en el apartado de A
 En caso de cambiar el puerto por defecto del servidor de aplicaciones, se debe configurar dicha variable en la colección
 
 ![alt text](docs/image2.png)
+
+>Importante: Con el objetivo de agilizar el proceso de prueba de este repo, se incluyó el fichero `.env` con todas las configuraciones necesarias para solo desplegar la aplicación de forma rápida y fácil pero se considera una mala práctica incluir ficheros de configuraciones de este tipo con información sensible en los repositorios de código.
