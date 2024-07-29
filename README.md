@@ -67,7 +67,7 @@ docker exec -it idesa-app php artisan test
 Para testear el API podemos importar la colección de Postman que se encuentra en `postman/IDESA.postman_collection.json`
 
 ### Autenticación
-Para generar una `API key` debemos usar el endpoing de login con las credenciales por defecto o crear un usuario y hacer login.
+Para generar una `API key` debemos usar el endpoint de login con las credenciales por defecto o crear un usuario y hacer login.
 
 Luego de esto, todos los request podemos hacerlos usando esta `API key` colocando el encabezado de Authorization Bearer. Ejemplo:
 ``` bash
