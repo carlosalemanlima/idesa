@@ -27,8 +27,6 @@ Route::prefix('v1')->group(function () {
     });
 });
 
-
-
 Route::fallback(function () {
     return response()->json([
         'message' => 'Route not found'
