@@ -18,7 +18,7 @@ database:
     volumes:
       - v-database:/var/lib/mysql
     ports:
-      - "3309:3306" #configurar puerto a usar por defecto 3309
+      - "3309:3306" #configurar puerto a usar, por defecto 3309
 
 ...
 
@@ -31,7 +31,7 @@ laravel:
     volumes:
       - v-idesa-app:/var/www/html/storage/app
     ports:
-      - "8080:80" #configurar puerto a usar por defecto 8080
+      - "8080:80" #configurar puerto a usar, por defecto 8080
 
 ```
 
@@ -54,7 +54,7 @@ docker exec -it idesa-app php artisan migrate
 ```bash
 docker exec -it idesa-app php artisan db:seed
 ```
-> Para agilizar el proceso de test del repo, ejecutar seed crea un usuario por defecto \
+> Para agilizar el proceso de test del repo, ejecutar seed crea un usuario por defecto con las credenciales: \
 > `user:` idesa \
 > `password:` idesa123
 
@@ -63,8 +63,8 @@ docker exec -it idesa-app php artisan db:seed
 docker exec -it idesa-app php artisan test
 ```
 
-## Probar la API
-Para testear la API podemos importar la colección de Postman que se encuentra en `postman/IDESA.postman_collection.json`
+## Probar el API
+Para testear el API podemos importar la colección de Postman que se encuentra en `postman/IDESA.postman_collection.json`
 
 ### Autenticación
 Para generar una `API key` debemos usar el endpoing de login con las credenciales por defecto o crear un usuario y hacer login.
@@ -77,3 +77,9 @@ curl http://localhost:8080/api/v1/books  -H "Authorization: Bearer api_key"
 Para usarlo desde Postman podemos configurar el Token a usar en el apartado de Authorization de la colección.
 
 ![alt text](docs/image.png)
+
+
+### Otros aspectos a tener en cuenta
+En caso de cambiar el puerto por defecto del servidor de aplicaciones, se debe configurar dicha variable en la colección
+
+![alt text](docs/image2.png)
