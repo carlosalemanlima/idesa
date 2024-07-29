@@ -19,7 +19,7 @@ class AuthorServiceTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->authorService = new AuthorAppService();
+        $this->authorService =  $this->app->make(AuthorAppService::class);
     }
 
 
@@ -113,5 +113,4 @@ class AuthorServiceTest extends TestCase
         //Assert
         $this->assertModelMissing($author);
     }
-
 }

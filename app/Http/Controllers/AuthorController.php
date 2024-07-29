@@ -12,11 +12,9 @@ use App\Http\Requests\UpdateAuthorRequest;
 class AuthorController extends Controller
 {
 
-    protected $authorsService;
-
-    public function __construct(AuthorAppService $authorsService)
+    public function __construct(protected AuthorAppService $authorsService)
     {
-        $this->authorsService = $authorsService;
+
     }
 
     public function index()

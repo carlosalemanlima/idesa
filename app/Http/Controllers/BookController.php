@@ -12,11 +12,9 @@ class BookController extends Controller
 {
 
 
-    protected $booksService;
-
-    public function __construct(BookAppService $booksService)
+    public function __construct(protected BookAppService $booksService)
     {
-        $this->booksService = $booksService;
+
     }
 
 

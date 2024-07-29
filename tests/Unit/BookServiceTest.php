@@ -19,7 +19,7 @@ class BookServiceTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->bookService = new BookAppService();
+        $this->bookService = $this->app->make(BookAppService::class);
     }
 
 
